@@ -13,8 +13,8 @@ describe('Users', () => {
 
 
     it('GET /users/:id', () => {
-        return request.get('users/1?access-token=${TOKEN}').then((res) => {
-            expect(res.body.data.id).to.be.eq(1);
+        return request.get('users/63?access-token=${TOKEN}').then((res) => {
+            expect(res.body.data.id).to.be.eq(63);
             });
         });
     });
