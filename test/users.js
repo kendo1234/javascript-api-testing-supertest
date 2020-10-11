@@ -32,3 +32,22 @@ describe('Users', () => {
         });
     });
 
+    it('POST /users', () => {
+
+        
+        const data = {
+            email: `test${Math.floor(Math.random() * 999999)}@mail.ca`,
+            name: 'Ttest',
+            gender: 'Male',
+            status: 'Inactive',
+        };
+
+        return request
+        .post('users')
+        .set('Authorization', `Bearer ${TOKEN}`)
+        .send(data)
+        .then((res) => {
+            expect(res.body.data).to.deep.include(data);
+        });
+    });
+
