@@ -34,7 +34,6 @@ describe('Users', () => {
 
     it('POST /users', () => {
 
-        
         const data = {
             email: `test${Math.floor(Math.random() * 999999)}@mail.ca`,
             name: 'Ttest',
@@ -50,4 +49,31 @@ describe('Users', () => {
             expect(res.body.data).to.deep.include(data);
         });
     });
+
+    it('PUT /users/:id', () => {
+        const data = {
+          status: 'Active',
+          name: `Luffy - ${Math.floor(Math.random() * 9999)}`,
+        };
+    
+        return request
+          .put('users/132')
+          .set('Authorization', `Bearer ${TOKEN}`)
+          .send(data)
+          .then((res) => {
+            console.log(res.body);
+            expect(res.body.data).to.deep.include(data);
+          });
+      });
+    
+      it('DELETE /users/:id', () => {
+        return request
+          .delete('users/21')
+          .set('Authorization', `Bearer ${TOKEN}`)
+          .then((res) => {
+            console.log(res.body);
+            expect(res.body.data).to.be.eq(null);
+          });
+      });
+    
 
