@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.12.1",
+    "dotenv": "^8.2.0",
     "faker": "^5.1.0"
   }
 }

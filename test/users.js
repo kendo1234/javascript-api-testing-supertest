@@ -1,7 +1,8 @@
+require('dotenv').config();
 import request from '../config/supertest';
 import {expect} from 'chai';
 
-const TOKEN = '9afcb58d8a42730d11549f3b0d4f3ed07ca94f6c2a7faa76168833ddcc49bcf4'
+const TOKEN = process.env.USER_TOKEN;
 
 describe('Users', () => {
     it('GET /users', () => {
@@ -9,7 +10,6 @@ describe('Users', () => {
         expect(res.body.data).to.not.be.empty;
     });
 });
-
 
     it('GET /users/:id', () => {
         return request.get('users/63?access-token=${TOKEN}').then((res) => {

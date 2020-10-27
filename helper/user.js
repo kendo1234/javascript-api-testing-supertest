@@ -1,8 +1,9 @@
+require('dotenv').config();
 const supertest = require('supertest');
 const request = supertest('https://gorest.co.in/public-api/');
 const faker = require('faker');
 
-const TOKEN = '9afcb58d8a42730d11549f3b0d4f3ed07ca94f6c2a7faa76168833ddcc49bcf4'
+const TOKEN = process.env.USER_TOKEN;
 
 export const createRandomUserWithFaker = async () => {
   const data = {
