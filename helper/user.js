@@ -22,8 +22,8 @@ export const createRandomUserWithFaker = async () => {
 
 export const createRandomUser = async () => {
   const data = {
-    email: 'jmathews' + Math.floor(Math.random() * 99999) + '@mail.ca',
-    name: 'John',
+    email: 'dameronP' + Math.floor(Math.random() * 99999) + '@mail.ca',
+    name: 'Poe',
     status: 'Active',
     gender: 'Male',
   };
