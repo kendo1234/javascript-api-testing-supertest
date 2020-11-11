@@ -5,7 +5,7 @@ import { expect } from 'chai';
 
 const TOKEN = process.env.USER_TOKEN;
 
-describe('Users', () => {
+describe('Users Advanced Tests', () => {
   let userId;
 
   describe('POST', () => {

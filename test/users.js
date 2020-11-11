@@ -16,12 +16,6 @@ describe('Users', () => {
       });
     });
   
-    it('GET /users/:id', () => {
-      return request.get(`users/1?access-token=${TOKEN}`).then((res) => {
-        expect(res.body.data.id).to.be.eq(1);
-      });
-    });
-  
     it('GET /users with query params', () => {
       const url = `users?access-token=${TOKEN}&page=5&gender=Female&status=Active`;
   
@@ -51,29 +45,29 @@ describe('Users', () => {
         });
     });
   
-    it('PUT /users/:id', () => {
-      const data = {
-        status: 'Active',
-        name: `Luffy - ${Math.floor(Math.random() * 9999)}`,
-      };
+  //   it('PUT /users/:id', () => {
+  //     const data = {
+  //       status: 'Active',
+  //       name: `Luffy - ${Math.floor(Math.random() * 9999)}`,
+  //     };
   
-      return request
-        .put('users/132')
-        .set('Authorization', `Bearer ${TOKEN}`)
-        .send(data)
-        .then((res) => {
-          console.log(res.body);
-          expect(res.body.data).to.deep.include(data);
-        });
-    });
+  //     return request
+  //       .put('users/132')
+  //       .set('Authorization', `Bearer ${TOKEN}`)
+  //       .send(data)
+  //       .then((res) => {
+  //         console.log(res.body);
+  //         expect(res.body.data).to.deep.include(data);
+  //       });
+  //   });
   
-    it('DELETE /users/:id', () => {
-      return request
-        .delete('users/21')
-        .set('Authorization', `Bearer ${TOKEN}`)
-        .then((res) => {
-          console.log(res.body);
-          expect(res.body.data).to.be.eq(null);
-        });
-    });
+  //   it('DELETE /users/:id', () => {
+  //     return request
+  //       .delete('users/21')
+  //       .set('Authorization', `Bearer ${TOKEN}`)
+  //       .then((res) => {
+  //         console.log(res.body);
+  //         expect(res.body.data).to.be.eq(null);
+  //       });
+  //   });
   });
